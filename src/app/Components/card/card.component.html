@@ -1,0 +1,22 @@
+<div class="card mb-4">
+  <img
+    src="{{ cardInfo.image }}"
+    class="card-img-top"
+    alt="{{ cardInfo.name }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ cardInfo.name }}</h5>
+    <p class="card-text">{{ cardInfo.description }}</p>
+    <p class="card-text">Price: {{ cardInfo.price | currency }}</p>
+    <div class="container-fluid d-flex justify-content-end">
+      <a
+        *ngIf="cardInfo.Stock > 0"
+        class="btn btn-primary"
+        (click)="onAddToCart()"
+      >
+        + Add To Cart
+      </a>
+      <a *ngIf="cardInfo.Stock == 0" class="btn btn-danger"> Out of Stock </a>
+    </div>
+  </div>
+</div>
